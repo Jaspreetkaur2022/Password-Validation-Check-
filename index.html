@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validation Check</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    
+    <div>
+       <div class="work">
+         <input type="password" class="password_input">
+         <img src="eye-open.png" alt="" class= "eye">
+
+       </div>
+       <div class="validate">
+          <div class="capital">
+            <img src="close-block.png" alt="">
+            <span>At least one capital letter</span>
+          </div>
+          <div class="lower">
+            <img src="close-block.png" alt="">
+            <span>At least one lower letter</span>
+          </div>
+          <div class="number">
+            <img src="close-block.png" alt="">
+            <span>At least one number</span>
+          </div>
+          <div class="special_char">
+            <img src="close-block.png" alt="">
+            <span>At least one special character</span>
+          </div>
+          <div class="length">
+            <img src="close-block.png" alt="">
+            <span>Must be 8 characters long</span>
+          </div>
+
+        </div>
+    </div>
+    <script>
+        const eye = document.querySelector(".eye");
+        const passwordInput = document.querySelector(".password_input");
+        eye.addEventListener("click" , e => {
+            if (passwordInput.type === "password"){
+                passwordInput.type = "text";
+                eye.src = "eye-close.png";
+
+            }else {
+                passwordInput.type = "password";
+                eye.src = "eye-open.png";
+            }
+        })
+        let upperCase = /[A-Z]/g;
+        let lowerCase = /[a-z]/g;
+        let number = /[0-9]/g;
+        let specialCharacter = /[!#@$]/g;
+        let length = 8;
+        passwordInput.addEventListener("input" , e => {
+            let pass_value = passwordInput.value;
+              if (pass_value.match(upperCase)){
+                let capital = document.querySelector(".capital");
+                capital.firstElementChild.src = "check-block.png";
+                capital.lastElementChild.style.color = "rgba (255,255,255,.5)";
+                console.log("UPPERCASE MATCHED")
+            }if (pass_value.match(lowerCase)) {
+                let lower = document.querySelector(".lower");
+                lower.firstElementChild.src = "check-block.png";
+                lower.lastElementChild.style.color = "rgba (255,255,255,.5)";
+                console.log("LOWERCASE MATCHED")
+            }if(pass_value.match(number)){
+                let number = document.querySelector(".number");
+                number.firstElementChild.src = "check-block.png";
+                number.lastElementChild.style.color = "rgba (255,255,255,.5)";
+                console.log("NUMBER MATCHED")
+            }if (pass_value.match(specialCharacter)){
+                let specialChar = document.querySelector(".special_char");
+                specialChar.firstElementChild.src = "check-block.png";
+                specialChar.lastElementChild.style.color = "rgba (255,255,255,.5)";
+                console.log("SPECIAL CHARACTER MATCHED")
+            }if (pass_value.length === length){
+                let length = document.querySelector(".length");
+                length.firstElementChild.src = "check-block.png";
+                length.lastElementChild.style.color = "rgba (255,255,255,.5)";
+                console.log("LENGTH MATCHED")
+            }
+
+        })
+        passwordInput.addEventListener("focus", e =>{
+            document.querySelector(".validate").style.display = "block";
+        })
+    </script>
+</body>
+</html>

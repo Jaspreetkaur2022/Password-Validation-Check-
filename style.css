@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 10px;
+    
+ 
+  
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(54, 187, 211);
+}
+.work {
+    position: relative;
+    width: 345px;
+}
+.work input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 7px;
+    outline: none;
+    font-size: 20px;
+    border: none;
+}
+.work img {
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    width: 25px;
+    cursor: pointer;
+
+}
+.validate {
+    background: rgb(144, 208, 219);
+    width: 350px;
+    margin: 30px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    display: none;
+
+}
+.validate div {
+    display: flex;
+    align-items: center;
+}
+.validate div img {
+    width: 45px;
+    margin-right: 10px;
+}
